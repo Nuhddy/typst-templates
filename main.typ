@@ -20,7 +20,7 @@
   set outline(title: "Table of Contents")
 
   let title-info = {
-    image("logo.png")
+    image("assets/logo.png")
     line(length: 100%)
     align(
       bottom,
