@@ -1,3 +1,5 @@
+// https://github.com/Nuhddy/typst-templates
+
 #let report(
   title: "",
   authors: (),
