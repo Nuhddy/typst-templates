@@ -1,7 +1,7 @@
 {
   description = "Nuhddy's typst templates";
 
-  inputs.nixpkgs.follows = "nixpkgs";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs = {
     self,
