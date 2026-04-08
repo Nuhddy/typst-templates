@@ -33,9 +33,13 @@ typst init @local/uni
 
 Use in existing project:
 ```typst
-#import "@local/uni:0.1.0": report
+#import "@local/uni:0.1.0": report, homework
 
 #show: report.with(
+  // ...
+)
+
+#show: homework.with(
   // ...
 )
 ```
