@@ -74,3 +74,51 @@
 
   body
 }
+
+#let homework(
+  title: "",
+  author: (),
+  subtitle: none,
+  date: datetime.today().display("[day]-[month]-[year]"),
+  body,
+) = {
+  set page(
+    margin: (
+      top: 30mm + 4em,
+      left: 30mm,
+      right: 30mm,
+      bottom: 30mm,
+    ),
+    numbering: "1 of 1",
+
+    header: [
+      #grid(
+        columns: (40%, 60%),
+        align: top,
+        [
+          #title \
+          #date
+        ],
+        [
+          #show: align.with(top + right)
+          #author.name \
+          #author.email
+        ],
+      )
+      #v(-5pt)
+      #line(length: 100%, stroke: 0.5pt)
+    ],
+  )
+
+  show heading: it => {
+    smallcaps(text(weight: "bold", it.body))
+  }
+
+  set par(
+    justify: true,
+    leading: 0.9em,
+    spacing: 1.5em,
+  )
+
+  body
+}
