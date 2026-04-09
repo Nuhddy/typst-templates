@@ -1,10 +1,17 @@
-#import "@local/uni:0.1.0": report
+#import "@local/uni:0.1.0": homework, report
+
+#show: homework.with(
+  title: "Title",
+  author: (name: "Author Name", email: "author@email.com"),
+  subtitle: "Subtitle",
+)
 
 #show: report.with(
-  title: "",
+  title: "Title",
   authors: (
-    (name: "", email: ""),
+    (name: "Author Name", email: "author@email.com"),
+    (name: "Co-author Name", email: "co-author@email.com"),
   ),
-  subtitle: "",
+  subtitle: "Subtitle",
   compact: true,
 )
