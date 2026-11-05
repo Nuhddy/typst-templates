@@ -53,7 +53,7 @@
 
   let full-title = {
     page(title-info)
-    if outline { outline() }
+    if toc { outline() }
   }
 
   let compact-title = page({
