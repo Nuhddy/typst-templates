@@ -8,6 +8,9 @@
     .today()
     .display("[month repr:long] [day padding:none], [year]"),
   compact: false,
+  toc: true,
+  header: false,
+  title-page-content: none,
   body,
 ) = {
   set page(margin: 30mm)
@@ -34,18 +37,23 @@
           gutter: 1.5em,
           ..authors.map(author => align(start)[
             *#author.name* \
-            #author.email
+            #author.email \
+            Study no. #author.id
           ]),
         )
         v(2em)
         text(1em, date)
+        if title-page-content != none {
+          v(2em)
+          title-page-content
+        }
       },
     )
   }
 
   let full-title = {
     page(title-info)
-    outline()
+    if outline { outline() }
   }
 
   let compact-title = page({
@@ -56,10 +64,21 @@
         v(1em)
       },
     )
-    align(bottom, outline())
+    if toc { align(bottom, outline()) }
   })
 
   if compact { compact-title } else { full-title }
+
+  set page(
+    header: if header {
+      grid(
+        columns: (1fr,) * 2,
+        align: authors
+          .enumerate()
+          .map(((i, _)) => if calc.even(i) { left } else { right }),
+      )
+    },
+  )
 
   set page(numbering: "1 of 1")
   counter(page).update(n => {
